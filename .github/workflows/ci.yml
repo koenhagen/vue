@@ -1,8 +1,6 @@
 name: 'ci'
 on:
   push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -24,7 +22,10 @@ jobs:
       - run: pnpm install
 
       - name: Run unit tests
-        run: pnpm run test:unit
+        uses: koenhagen/measure-energy-action@v0.16
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: pnpm run test:unit
 
   ssr-sfc-test:
     runs-on: ubuntu-latest
