@@ -19,7 +19,7 @@ jobs:
       - run: pnpm install
 
       - name: Run unit tests
-        uses: koenhagen/measure-energy-action@v0.20
+        uses: koenhagen/measure-energy-action@v0.23
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           run: pnpm run test:unit
